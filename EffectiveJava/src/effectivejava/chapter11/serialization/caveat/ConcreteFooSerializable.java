@@ -8,6 +8,9 @@ import java.io.Serializable;
 public class ConcreteFooSerializable extends AbstractFooNotSerializable
 		implements Serializable {
 
+	//note that the subclass is responsible for reading and writing fields from parent class,
+	//which doesn't implement Serializable
+	
 	private void readObject(ObjectInputStream s) throws ClassNotFoundException, IOException{
 		s.defaultReadObject();
 		int x = s.readInt();
